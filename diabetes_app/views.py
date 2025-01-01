@@ -50,7 +50,6 @@ def data(request):
                                          columns=['gender', 'age', 'hypertension', 'heart_disease', 
                                                   'smoking_history', 'BMI_Level', 'HbA1c_level', 'blood_glucose_level'])
             print(data_for_predict)
-
             predict_value = pipe.predict(data_for_predict)
             print(predict_value)
             return render(request, "input.html", {"predict_value" : predict_value, "dropDownData" : dropDownData})
