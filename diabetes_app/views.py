@@ -4,8 +4,8 @@ from django.conf import settings
 import pickle as pk
 import pandas as pd 
 
-pipe_path = os.path.join(settings.BASE_DIR, 'mysite', 'static', 'model', 'pipe.pickle')
-data_path = os.path.join(settings.BASE_DIR, 'mysite', 'static', 'model', 'df.pickle')
+pipe_path = os.path.join(settings.BASE_DIR, 'static', 'model', 'pipe.pickle')
+data_path = os.path.join(settings.BASE_DIR, 'static', 'model', 'df.pickle')
 
 with open(pipe_path, "rb") as pipe_file:
     pipe = pk.load(pipe_file)
