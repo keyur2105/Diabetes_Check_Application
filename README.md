@@ -20,12 +20,12 @@ This Django application predicts the likelihood of diabetes based on user input.
 - your_app_name/: Contains views, models, and templates.
 - static/model/: Directory for pipe.pickle and df.pickle.
 
-Dependencies : 
+## Dependencies
 - Django
 - pandas
 - scikit-learn
 
-Notes : 
+## Notes
 - Ensure pipe.pickle and df.pickle are in the static/model/ directory.
 - Customize input.html in the templates directory as needed.
 
