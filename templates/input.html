@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script>
+      // Initialize Lenis
+      const lenis = new Lenis({
+        autoRaf: true
+      })
+      
+      // Listen for the scroll event and log the event data
+      lenis.on('scroll', (e) => {
+        console.log(e)
+      })
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: monospace;
+      }
+      
+      body {
+        width: 100%;
+        padding: 50px 15px;
+        display: grid;
+        place-items: center;
+        background: url('https://gekyume11.github.io/img-cdn/bg.jpeg');
+        background-attachment: fixed;
+      }
+      
+      form {
+        display: grid;
+        gap: 16px;
+        padding: 20px;
+        color: rgba(255, 255, 255, 1);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        max-width: 550px;
+      }
+      
+      form > div {
+        display: grid;
+        gap: 6px;
+        width: 100%;
+      }
+      
+      form > div > select,
+      button {
+        width: 100%;
+        font-size: 12px;
+        border-radius: 4px;
+        color: rgba(255, 255, 255, 0.7);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2px 5px;
+      }
+      
+      button {
+        border: 1ps solid transparent;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: 0.3s all ease;
+      }
+      button:hover,
+      button:focus {
+        opacity: 0.8;
+        border: 1ps solid rgba(255, 255, 255, 0.4);
+      }
+      button:active {
+        scale: 0.9;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+      }
+      
+      form > div > label {
+        font-size: 16px;
+      }
+      
+      .bg {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+      }
+      
+      h1 {
+        color: #fff;
+        margin-bottom: 3%;
+        font-size: 25px;
+        /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
+        /* font-size: clamp(1.25rem, 0.9375rem + 1.7857vw, 2.5rem); */
+      }
+      
+      h3 {
+        color: white;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>તમારા ડાયાબિટીસના જોખમનું સરળતાથી મૂલ્યાંકન કરો</h1>
+    <form action="/data" method="get" id="main">
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender" required>
+          <option value="select">Select Your Gender</option>
+          {% for i in dropDownData.gender %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <select name="age" id="age" required>
+          <option value="select">Select Your Age</option>
+          {% for i in dropDownData.age %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="hypertension">HyperTension:</label>
+        <select name="hypertension" id="hypertension" required>
+          <option value="select">Select Your Level</option>
+          {% for i in dropDownData.hypertension %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="heart_disease">Heart Disease:</label>
+        <select name="heart_disease" id="heart_disease" required>
+          <option value="select">Select Your Disease</option>
+          {% for i in dropDownData.heart_disease %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="smoking_history">Smoking History:</label>
+        <select name="smoking_history" id="smoking_history" required>
+          <option value="select">Select Your Smoking History</option>
+          {% for i in dropDownData.smoking_history %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bmilevel">BMI Level (Body Mass Index):</label>
+        <select name="bmilevel" id="bmilevel" required>
+          <option value="select">Select Your Level</option>
+          {% for i in dropDownData.bmilevel %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="HbA1c_level">Hemoglobin A1C (HbA1c) Test:</label>
+        <select name="HbA1c_level" id="HbA1c_level" required>
+          <option value="select">Select Your HbA1c Level</option>
+          {% for i in dropDownData.HbA1c_level %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bsl">Blood Sugar Level:</label>
+        <select name="bsl" id="bsl" required>
+          <option value="select">Select Your Blood Sugar Level</option>
+          {% for i in dropDownData.bsl %}
+            <option value="{{ i }}">{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit">Predict Your Answer</button>
+
+      <center>
+        {% if predict_value == 1 %}
+          <h3>You are making new history because you have diabetes.💥💥</h3>
+        {% elif predict_value == 0 %}
+          <h3>Congratulation, you have not diabetes.🍾🍾</h3>
+        {% endif %}
+      </center>
+    </form>
+  </body>
+</html>
