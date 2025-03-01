@@ -30,4 +30,4 @@ Notes :
 --> Ensure pipe.pickle and df.pickle are in the static/model/ directory.
 --> Customize input.html in the templates directory as needed.
 
-👉 View the live project here: https://diabetes-check-application.onrender.com
+👉 View the live project here :  https://diabetes-check-application.onrender.com
