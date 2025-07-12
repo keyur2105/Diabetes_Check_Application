@@ -17,7 +17,7 @@ This Django application predicts the likelihood of diabetes based on user input.
 
 ## File Structure
 - Diabetes_Check_Application/: Main project directory.
-- Diabetes_app/: Contains views, models, and templates.
+- diabetes_app/: Contains views, models, and templates.
 - static/model/: Directory for pipe.pickle and df.pickle.
 
 ## Dependencies
